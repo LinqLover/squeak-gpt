@@ -10,7 +10,7 @@ A custom GPT for ChatGPT that talks to your Squeak image.
 - Start the server:
 
   ```smalltalk
-  server := EvalServer new.
+  server := SqueakWorkspaceServer new.
   server startOn: 8080.
   
   "server stop."

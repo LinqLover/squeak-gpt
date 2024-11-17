@@ -1,0 +1,14 @@
+{
+	"category" : "SqueakWorkspaceServer",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"statusCode" ],
+	"name" : "SqueakWorkspaceServerError",
+	"pools" : [
+		 ],
+	"super" : "Error",
+	"type" : "normal" }

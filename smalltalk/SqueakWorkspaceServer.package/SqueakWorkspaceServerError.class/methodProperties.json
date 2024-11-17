@@ -1,0 +1,10 @@
+{
+	"class" : {
+		"code:message:" : "ct 11/17/2024 00:39",
+		"signalBadRequest:" : "ct 11/17/2024 00:21",
+		"signalCode:message:" : "ct 11/17/2024 00:22",
+		"signalNotFound:" : "ct 11/17/2024 00:22" },
+	"instance" : {
+		"asJsonObject" : "ct 11/17/2024 00:20",
+		"statusCode" : "ct 11/17/2024 00:19",
+		"statusCode:" : "ct 11/17/2024 00:19" } }

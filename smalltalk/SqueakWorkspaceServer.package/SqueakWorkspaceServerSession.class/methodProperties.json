@@ -1,0 +1,21 @@
+{
+	"class" : {
+		 },
+	"instance" : {
+		"bindingOf:" : "ct 11/16/2024 22:47",
+		"documentAt:ifAbsent:" : "ct 11/17/2024 00:36",
+		"evaluate:" : "ct 11/16/2024 23:01",
+		"evaluate:ifFail:" : "ct 11/17/2024 01:24",
+		"id" : "ct 11/17/2024 00:38",
+		"initialize" : "ct 11/17/2024 00:46",
+		"lastAccessTime" : "ct 11/17/2024 00:41",
+		"lastAccessTime:" : "ct 11/17/2024 00:41",
+		"makeContextForThisSession" : "ct 11/17/2024 01:25",
+		"makeContextForThisSession:" : "ct 11/17/2024 01:25",
+		"notify:at:in:" : "ct 11/16/2024 22:55",
+		"receiver" : "ct 11/16/2024 22:46",
+		"resetBindings" : "ct 11/16/2024 22:43",
+		"resetDocuments" : "ct 11/16/2024 23:40",
+		"resetHistory" : "ct 11/16/2024 22:46",
+		"storeDocument:" : "ct 11/17/2024 00:46",
+		"wantsInteractiveErrorCorrection" : "ct 11/16/2024 22:56" } }

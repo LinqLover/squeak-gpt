@@ -1,0 +1,17 @@
+{
+	"category" : "SqueakWorkspaceServer",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"webServer",
+		"sessions",
+		"tunnelServerUrl",
+		"lastCleanupDate" ],
+	"name" : "SqueakWorkspaceServer",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

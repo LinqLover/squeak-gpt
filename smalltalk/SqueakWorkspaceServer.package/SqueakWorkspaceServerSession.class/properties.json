@@ -1,0 +1,18 @@
+{
+	"category" : "SqueakWorkspaceServer",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"id",
+		"bindings",
+		"documents",
+		"lastAccessTime",
+		"history" ],
+	"name" : "SqueakWorkspaceServerSession",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }

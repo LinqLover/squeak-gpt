@@ -27,7 +27,7 @@ A custom GPT for ChatGPT that talks to your Squeak image.
   server tunnelServerUrl: 'https://your-unique-tunnel-name.trycloudflare.com'.
   ```
   
-> **Warning**  
+> [!WARNING]  
 > Remember that everybody who has access to your server can execute arbitrary code on your machine! Consider using strong authentication or keep the URL private.
 
 ### ChatGPT

@@ -1,0 +1,136 @@
+openapi: 3.1.0
+info:
+  title: Squeak/Smalltalk Image Interaction API
+  description: >
+    This API allows interaction with a Squeak/Smalltalk image. Users can send Smalltalk commands to evaluate and
+    retrieve results or errors and store MIMEDocuments or retrieve these documents later. Common use cases include
+    querying information about classes, methods, runtime objects, or executing Smalltalk expressions.
+  version: 1.0.0
+servers:
+  - url: <YOUR_SERVER_URL>
+    description: Production server
+paths:
+  /eval:
+    get:
+      operationId: evaluateCommand
+      summary: Evaluate a Smalltalk command.
+      description: |
+        Executes a Smalltalk expression and returns the result or error details.
+      parameters:
+        - name: expression
+          in: query
+          description: The Smalltalk expression to evaluate.
+          required: true
+          schema:
+            type: string
+        - name: sessionId
+          in: query
+          description: The ID of a Smalltalk session, if already exists. Do not specify to create a new session.
+          required: false
+          schema:
+            type: string
+        - name: asMime
+          in: query
+          description: Set this to true to store the result and request a MIME URL for the it.
+          required: false
+          schema:
+            type: boolean
+      responses:
+        "200":
+          description: The result of the evaluation.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessionId:
+                    type: string
+                    description: The ID of the current Smalltalk session.
+                  result:
+                    type: string
+                    nullable: true
+                    description: The result of the evaluated Smalltalk command, if successful.
+                  url:
+                    type: string
+                    nullable: true
+                    description: A MIME URL for the result, such as an image, if requested.
+        "400":
+          description: An error while evaluating the expression.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessionId:
+                    type: string
+                    nullable: true
+                    description: The ID of the current Smalltalk session.
+                  error:
+                    type: string
+                    nullable: true
+                    description: The error message, if an error occurred.
+                  printError:
+                    type: string
+                    nullable: true
+                    description: The error message of printing a regular error message, if even that errored.
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessionId:
+                    type: string
+                    nullable: true
+                    description: The ID of the current Smalltalk session.
+                  queryError:
+                    type: string
+                    description: The error message.
+  /document:
+    get:
+      operationId: documentCommand
+      summary: Retrieve a stored document.
+      description: |
+        Looks up a previously stored document (via evaluateCommand with &asMime) from a Smalltalk session.
+      parameters:
+        - name: sessionId
+          in: query
+          description: The ID of a Smalltalk session.
+          required: true
+          schema:
+            type: string
+        - name: documentId
+          in: query
+          description: The ID of the document.
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: The requested document.
+          content:
+            "*/*":
+              schema:
+                type: string
+                format: binary
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  queryError:
+                    type: string
+                    description: The error message.
+        "500":
+          description: Server error while sending document
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: The error message.

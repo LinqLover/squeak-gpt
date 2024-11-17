@@ -44,3 +44,6 @@ You can read an example conversation here: <https://chatgpt.com/share/67381691-7
 ![image](https://github.com/user-attachments/assets/dc16be64-0e05-4389-a303-0b94b4b73d07)
 ![image](https://github.com/user-attachments/assets/92021c3d-3686-47ec-8e5c-c5dd5c8229db)
 
+## See Also
+
+If you want to use ChatGPT through the OpenAI API in Squeak instead, also check out [SemanticText](https://github.com/hpi-swa-lab/Squeak-SemanticText).

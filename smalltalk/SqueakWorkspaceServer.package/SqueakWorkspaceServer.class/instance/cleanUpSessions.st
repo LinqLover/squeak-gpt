@@ -4,5 +4,7 @@ cleanUpSessions
 	| now |
 	now := DateAndTime now.
 	(sessions select: [:session |
-		(now - session lastAccessTime) > self sessionRetentionDuration])
-			keysDo: [:sessionId | sessions removeKey: sessionId].
+		session lastAccessTime
+			ifNil: [true]
+			ifNotNil: [:lastAccessTime | (now - lastAccessTime) > self sessionRetentionDuration]])
+				keysDo: [:sessionId | sessions removeKey: sessionId].

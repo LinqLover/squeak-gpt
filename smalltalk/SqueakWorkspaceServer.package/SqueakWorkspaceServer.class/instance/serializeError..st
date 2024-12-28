@@ -3,6 +3,10 @@ serializeError: anException
 
 	^ [OrderedJsonObject new
 		description: anException description;
+		longPrint: anException longPrintString;
+		in: [:json |
+			(anException isKindOf: SyntaxErrorNotification) ifTrue: [
+				json sourceWithError: (self sourceWithErrorFor: anException)]];
 		stack:
 			((anException signalerContext stack copyUpTo: anException privHandlerContext) allButLast
 				collect: #asString);

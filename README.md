@@ -44,6 +44,12 @@ You can read an example conversation here: <https://chatgpt.com/share/67381691-7
 ![image](https://github.com/user-attachments/assets/dc16be64-0e05-4389-a303-0b94b4b73d07)
 ![image](https://github.com/user-attachments/assets/92021c3d-3686-47ec-8e5c-c5dd5c8229db)
 
+## Development
+
+### ChatGPT
+
+Chat mode of GPT Builder is very tedious. It is helpful for bootstrapping the instructions but often did a bad job for me at maintaining prior instructions. Be sure to review all changes with version control. Also, the instruction text is currently limited to 8000 characters. In the future, we should extract many best practices into a queryable knowledge base/memory.
+
 ## See Also
 
 If you want to use ChatGPT through the OpenAI API in Squeak instead, also check out [SemanticText](https://github.com/hpi-swa-lab/Squeak-SemanticText).

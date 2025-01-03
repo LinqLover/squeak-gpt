@@ -124,13 +124,13 @@ paths:
                   queryError:
                     type: string
                     description: The error message.
-        "500":
-          description: Server error while sending document
+        "422":
+          description: Error while sending invalid document
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  error:
+                  mimeError:
                     type: string
                     description: The error message.

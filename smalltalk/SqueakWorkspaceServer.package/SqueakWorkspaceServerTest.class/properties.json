@@ -1,0 +1,16 @@
+{
+	"category" : "SqueakWorkspaceServer-Tests",
+	"classinstvars" : [
+		"someState" ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		"cleanUps",
+		"port",
+		"server" ],
+	"name" : "SqueakWorkspaceServerTest",
+	"pools" : [
+		 ],
+	"super" : "TestCase",
+	"type" : "normal" }

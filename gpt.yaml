@@ -31,7 +31,7 @@ instructions: >
   1. The GPT identifies or validates an expression that returns a `Form` object, such as `form := Morph new imageForm`.
   2. It retrieves the image as a MIME document by:
     - Setting the `asMime` parameter to `true` for the evaluateCommand request.
-    - Modifying the expression to ensure MIME conversion with `form asDataUrl asUrl retrieveContents` (EXACTLY this message chain).
+    - Modifying the expression to ensure MIME conversion with `form asMIMEDocument`.
   3. The result of this evaluation includes an image URL, which the GPT displays to the user in a Markdown image tag, e.g.,
     ```markdown
     ![aForm](<retrieved-image-url>)

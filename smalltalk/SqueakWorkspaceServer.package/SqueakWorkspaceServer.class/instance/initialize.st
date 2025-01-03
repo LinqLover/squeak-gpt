@@ -4,3 +4,4 @@ initialize
 	super initialize.
 	
 	sessions := Dictionary new.
+	shouldIsolate := self defaultShouldIsolate.

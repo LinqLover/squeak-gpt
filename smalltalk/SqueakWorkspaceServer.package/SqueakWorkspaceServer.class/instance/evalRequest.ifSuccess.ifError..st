@@ -10,7 +10,9 @@ evalRequest: aWebRequest ifSuccess: successBlock ifError: errorBlock
 				[^ SqueakWorkspaceServerError signalNotFound: 'This session does not exist. Maybe it was already pruned by the server. In that case, its variables must be manually recreated in a new session.']]
 		ifAbsent:
 			[| newSession |
-			newSession := SqueakWorkspaceServerSession new.
+			newSession := SqueakWorkspaceServerSession new
+				shouldIsolate: self shouldIsolate;
+				yourself.
 			sessions at: newSession id put: newSession].
 	
 	expression := self getParameterFrom: aWebRequest fields named: #expression.
@@ -20,19 +22,26 @@ evalRequest: aWebRequest ifSuccess: successBlock ifError: errorBlock
 	answer sessionId: session id.
 	session lastAccessTime: DateAndTime now.
 	
-	[result := session evaluate: expression]
-		on: Error do: [:ex | ^ errorBlock value: answer value: #error value: ex].
+	result := session
+		evaluate: expression
+		storeError: [:ex | self serializeErrorAsJson: ex]
+		ifFailed: [:error | ^ errorBlock value: answer value: session value: #error value: error].
 	
-	[resultString := result printString]
-		on: Error do: [:ex | ^ errorBlock value: answer value: #printError value: ex].
+	resultString := session
+		do: [result printString copy]
+		storeError: [:ex | self serializeErrorAsJson: ex]
+		ifFailed: [:error | ^ errorBlock value: answer value: session value: #printError value: error].
 	
 	asMime ifTrue:
 		[| documentId |
-		[(result respondsTo: #content) ifFalse: [self error: 'not a valid MIMEDocument'].
-		result contentType]
-			on: Error do: [:ex | ^ errorBlock value: answer value: #mimeError value: ex].
+		session
+			do:
+				[(result respondsTo: #content) ifFalse: [self error: 'not a valid MIMEDocument'].
+				result contentType]
+			storeError: [:ex | self serializeErrorAsJson: ex]
+			ifFailed: [:error | ^ errorBlock value: answer value: session value: #mimeError value: error].
 		documentId := session storeDocument: result.
 		answer url: self publicServerUrl , ('/document?sessionId={1}&documentId={2}' format: {session id. documentId})].
 	answer result: resultString.
 	
-	^ successBlock value: answer
+	^ successBlock value: answer value: session

@@ -1,7 +1,10 @@
 private
 serializeError: anException
 
-	^ [OrderedJsonObject new
+	^ [(anException isKindOf: Association) ifTrue:
+		[self assert: anException key = #serializedErrorJson.
+		^ anException value parseAsJson].
+	OrderedJsonObject new
 		description: anException description;
 		longPrint: anException longPrintString;
 		in: [:json |

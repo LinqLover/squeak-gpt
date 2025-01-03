@@ -1,4 +1,4 @@
 accessing
 bearerToken: aString
 
-	webServer addToken: aString toRealm: self authenticationRealm.
+	webServer addToken: aString beSecret toRealm: self authenticationRealm.

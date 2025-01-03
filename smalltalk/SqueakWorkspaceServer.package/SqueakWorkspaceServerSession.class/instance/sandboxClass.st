@@ -1,0 +1,4 @@
+evaluating - private
+sandboxClass
+
+	^ RestrictivePragmaticSandbox

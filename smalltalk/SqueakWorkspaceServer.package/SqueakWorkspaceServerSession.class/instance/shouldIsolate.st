@@ -1,0 +1,4 @@
+accessing
+shouldIsolate
+
+	^ shouldIsolate

@@ -7,10 +7,12 @@
 	"commentStamp" : "",
 	"instvars" : [
 		"id",
+		"shouldIsolate",
 		"bindings",
 		"documents",
 		"lastAccessTime",
-		"history" ],
+		"history",
+		"sandboxMemory" ],
 	"name" : "SqueakWorkspaceServerSession",
 	"pools" : [
 		 ],

@@ -9,6 +9,7 @@
 		"webServer",
 		"sessions",
 		"tunnelServerUrl",
+		"shouldIsolate",
 		"lastCleanupDate" ],
 	"name" : "SqueakWorkspaceServer",
 	"pools" : [

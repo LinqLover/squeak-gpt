@@ -1,0 +1,4 @@
+evaluating - private
+sandboxErrorClass
+
+	^ SandboxError
